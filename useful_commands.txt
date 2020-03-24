@@ -3,6 +3,8 @@
 ###############
 #nvidia information
 nvidia-smi
+#keep above command open with 0.3 second refresh
+watch -n 0.3 nvidia-smi
 #general system info
 lspci
 ###############
