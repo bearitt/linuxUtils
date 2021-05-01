@@ -1,0 +1,26 @@
+#
+# ~/.bash/.path
+#
+
+pathm () {
+  if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
+    if [ "$2" = "after" ] ; then
+      PATH=$PATH:$1
+    else
+      PATH=$1:$PATH
+    fi
+  fi
+}
+
+pathm /usr/bin
+pathm /sbin after
+pathm /usr/local/sbin
+pathm /usr/local/bin
+pathm $HOME/.config after
+pathm $HOME/.local/bin after
+pathm $HOME/bin after
+pathm $HOME/Scripts after
+
+export PATH
+
+# syntax: ssHash

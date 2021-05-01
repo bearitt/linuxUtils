@@ -1,4 +1,32 @@
 --------------------------
+Barret manual apps
+--------------------------
+vscode
+postman
+losslesscut 
+kdenlive
+gimp
+discord
+spotify
+obs
+simple screen recorder
+itch
+screenshot
+transmission
+zoom
+wireshark
+lutris
+inkscape
+nomacs
+libreoffice
+document vewier
+cadence
+audacity
+youtube-dl
+rstudio
+folding at home
+grub customizer
+--------------------------
 pacman installs
 --------------------------
 a52dec 0.7.4-10

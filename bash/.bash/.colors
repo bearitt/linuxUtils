@@ -1,0 +1,10 @@
+#
+# ~/.bash/.colors
+#
+
+# Get our Colours
+if [[ -r ~/.dir_colors ]] && type -p dircolors >/dev/null; then
+  eval $(dircolors -b "$HOME/.dir_colors")
+fi
+
+# syntax:bash
