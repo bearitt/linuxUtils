@@ -27,6 +27,7 @@ rstudio
 folding at home
 grub customizer
 fuck
+megasync
 --------------------------
 pacman installs
 --------------------------
