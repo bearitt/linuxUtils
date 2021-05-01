@@ -26,6 +26,7 @@ youtube-dl
 rstudio
 folding at home
 grub customizer
+fuck
 --------------------------
 pacman installs
 --------------------------
