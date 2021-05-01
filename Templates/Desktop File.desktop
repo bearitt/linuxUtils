@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Comment=
+Exec=
+Icon=
+Terminal=false
+Type=Application
+Categories=X-XFCE;Settings;DesktopSettings;X-XfceSettingsDialog;
+StartupNotify=true
+OnlyShowIn=XFCE;
+X-XfcePluggable=true
+Name=
+GenericName=
