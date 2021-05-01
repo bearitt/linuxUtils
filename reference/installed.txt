@@ -28,6 +28,7 @@ folding at home
 grub customizer
 fuck
 megasync
+phoronix
 --------------------------
 pacman installs
 --------------------------
