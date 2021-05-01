@@ -1,0 +1,150 @@
+-- Conky, a system monitor, based on torsmo
+--
+-- Any original torsmo code is licensed under the BSD license
+--
+-- All code written since the fork of torsmo is licensed under the GPL
+--
+-- Please see COPYING for details
+--
+-- Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+-- Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+-- All rights reserved.
+--
+-- This program is free software: you can redistribute it and/or modify
+-- it under the terms of the GNU General Public License as published by
+-- the Free Software Foundation, either version 3 of the License, or
+-- (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+-- You should have received a copy of the GNU General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+--
+--
+-- This file was modified by Neon Cipher (http://neoncipher.net)                                           
+conky.config = {
+xinerama_head=1,
+background=true,
+use_xft=true,
+--xftfont=123,--:size=8
+xftalpha=0.1,
+update_interval=0.3,
+total_run_times=0,
+own_window=true,
+own_window_type="normal",
+own_window_transparent=true,
+own_window_class="conky-semi",
+own_window_hints="undecorated,below,sticky,skip_taskbar,skip_pager",
+own_window_argb_visual=true,
+own_window_argb_value=0,
+double_buffer=true,
+--minimum_size=240,--5
+maximum_width=400,
+draw_shades=false,
+draw_outline=false,
+draw_borders=false,
+draw_graph_borders=true,
+default_color="gray",
+default_shade_color="red",
+default_outline_color="white",
+alignment="top_left",
+
+gap_x=7,
+gap_y=25,
+
+stippled_borders=3,
+border_inner_margin=4,
+border_width=5,
+
+no_buffers=true,
+uppercase=false,
+cpu_avg_samples=2,
+net_avg_samples=1,
+--override_utf8_locale yes
+use_spacer="right",
+text_buffer_size=256
+}
+
+conky.text = [[
+${font Arial:bold:size=10}${color #04d9d9}bianca ${color #a6039b} ${hr 2}
+$font${color #04abdf}$sysname $kernel $alignr ${color #025e73}$machine
+$font${color #04abdf}Date ${color #025e73}$alignr${time %A, %B %e} - ${time %I:%M %P}
+$font${color #04abdf}Uptime $alignr${color #025e73}${uptime_short}
+$font${color #04abdf}File System $alignr${color #025e73}${fs_type}
+
+${font Arial:bold:size=10}${color #04d9d9}NETWORK ${color #a6039b}${hr 2}
+$font${color #04abdf}IP on enp4s0 $alignr ${color #025e73}${addr enp4s0}
+$font${color #04abdf}Up $alignr ${color #025e73}${upspeed enp4s0}
+${color #ee05f2}${upspeedgraph enp4s0 20,250 #025e73 #025e73}
+${color #04abdf}Down $alignr ${color #025e73}${downspeed enp4s0}
+${color #ee05f2}${downspeedgraph enp4s0 20,250 #025e73 #025e73}  
+${color #04abdf}Uploaded: $alignr ${color #025e73}${totalup enp4s0} ${color #04abdf}Downloaded: $alignr ${color #025e73}${totaldown enp4s0}
+
+${font Arial:bold:size=10}${color #04d9d9}PROCESSORS ${color #a6039b}${hr 2}
+$font${color #04d9d9}Core1  ${cpu cpu1}% ${color #ee05f2}${cpubar cpu1}
+${color #025e73}Freq: ${freq 1}MHz
+${color #04d9d9}Core2  ${cpu cpu2}% ${color #ee05f2}${cpubar cpu2}
+${color #025e73}Freq: ${freq 2}MHz
+${color #04d9d9}Core3  ${cpu cpu3}% ${color #ee05f2}${cpubar cpu3}
+${color #025e73}Freq: ${freq 3}MHz
+${color #04d9d9}Core4  ${cpu cpu4}% ${color #ee05f2}${cpubar cpu4}
+${color #025e73}Freq: ${freq 4}MHz
+${color #04d9d9}Core5  ${cpu cpu5}% ${color #ee05f2}${cpubar cpu5}
+${color #025e73}Freq: ${freq 5}MHz
+${color #04d9d9}Core6  ${cpu cpu6}% ${color #ee05f2}${cpubar cpu6}
+${color #025e73}Freq: ${freq 6}MHz
+${color #04d9d9}Core7  ${cpu cpu7}% ${color #ee05f2}${cpubar cpu7}
+${color #025e73}Freq: ${freq 7}MHz
+${color #04d9d9}Core8  ${cpu cpu8}% ${color #ee05f2}${cpubar cpu8}
+${color #025e73}Freq: ${freq 8}MHz
+${color #04d9d9}Core9  ${cpu cpu8}% ${color #ee05f2}${cpubar cpu8}
+${color #025e73}Freq: ${freq 9}MHz
+${color #04d9d9}Core10 ${cpu cpu8}% ${color #ee05f2}${cpubar cpu8}
+${color #025e73}Freq: ${freq 10}MHz
+${color #04d9d9}Core11 ${cpu cpu8}% ${color #ee05f2}${cpubar cpu8}
+${color #025e73}Freq: ${freq 11}MHz
+${color #04d9d9}Core12 ${cpu cpu8}% ${color #ee05f2}${cpubar cpu8}
+${color #025e73}Freq: ${freq 12}MHz
+
+${font Arial:bold:size=10}${color #04d9d9}TEMPERATURES ${color #a6039b}${hr 2}
+$font${color #04abdf}CPU Temp$alignr${exec sensors | grep 'Tdie' | cut -c16-19}°C
+$font${color #ee05f2}${execibar 95 sensors | grep 'Tdie' | cut -c16-19}
+$font${color #04abdf}GPU Temp$alignr${nvidia temp}°C
+$font${color #ee05f2}${nvidiabar gputemp}
+
+${font Arial:bold:size=10}${color #04d9d9}GPU ${color #a6039b}${hr 2}
+$font${color #04abdf}Load $alignr Freq $alignr ${color #025e73}${nvidia gpufreq}MHz
+$font${color #025e73}${nvidia gpuutil}% ${color #ee05f2}${nvidiabar gpuutil}
+$font${color #04abdf}VRAM $alignr Total: 6GB
+$font${color #025e73}${nvidia memutil}% ${color #ee05f2}${nvidiabar memutil}
+$font${color #04abdf}Fan
+$font${color #025e73}${nvidia fanlevel}% ${color #ee05f2}${nvidiabar fanlevel}
+
+${font Arial:bold:size=10}${color #04d9d9}MEMORY ${color #a6039b}${hr 2}
+$font${color #04abdf}MEM $alignc ${color #025e73}$mem / $memmax $alignr $memperc%
+${color #ee05f2}$membar
+${font Arial:bold:size=10}${color #04d9d9}HDD ${color #a6039b}${hr 2}
+$font${color #04abdf}/home ${color #025e73}$alignc ${fs_used /home} / ${fs_size /home} $alignr ${fs_free_perc /home}%
+${color #ee05f2}${fs_bar /home}
+${color #04abdf}Disk I/O: ${color #025e73}${diskio}
+${color #04abdf}Read:
+${color #ee05f2}${diskiograph_read 20,250 #025e73 #025e73 750}
+${color #04abdf}Write:
+${color #ee05f2}${diskiograph_write 20,250 #025e73 #025e73 750}
+${color #04abdf}Swap Usage: ${color #025e73}$swap${color #a6039b}/${color #025e73}$swapmax - $swapperc% ${color #ee05f2}${swapbar}
+
+${color #04abdf}Entropy: ${color #025e73}${entropy_avail}${color #a6039b}/${color #025e73}${entropy_poolsize} ${color #ee05f2}${entropy_bar}
+
+${font Arial:bold:size=10}${color #04d9d9}PROCESSES ${color #a6039b}${hr 2}
+$font${color #04adbf}Total: ${color #04d9d9}$alignr${processes}
+$font${color #04abdf}Top memory usage
+${color #025e73}$font${top_mem name 1}${alignr}${top_mem mem 1} %
+$font${top_mem name 2}${alignr}${top_mem mem 2} %
+$font${top_mem name 3}${alignr}${top_mem mem 3} %
+$font${top_mem name 4}${alignr}${top_mem mem 4} %
+$font${top_mem name 5}${alignr}${top_mem mem 5} %
+$font${top_mem name 6}${alignr}${top_mem mem 7} %
+$font${top_mem name 7}${alignr}${top_mem mem 6} %
+]]

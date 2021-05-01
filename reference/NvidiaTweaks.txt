@@ -1,0 +1,17 @@
+##Notes on the EVGA GTX 1060 6GB
+
+Lastly, a note for Linux users:
+
+Obviously you don't have access to tools like MSI Afterburner. That's cool though, you've got bash. I got some help online and came up with a script that controls this card's GPU (well, any Nvidia card) based on the temperature. You can find it at the link below:
+
+https://pastebin.com/2iANCPEy
+
+The script controls the fan by using an offset value to set the fan speed to an offset of the temperature. If the card is below 56c the fan will stay on at 12% speed which is essentially spinning but inaudible. Once it passes that temperature threshold, it sets the fans speed to the temperature plus the offset. In my case an offset of -22 worked well. That way at 60c the fan will be at 38%, at 70c the fan will be at 48%, and so on. Seems to be perfectly adequate for cooling during gaming, and I'm seeing max temps of around 73-74c under load at 51-52% fan speed with the script. You can modify the offset value however works for you.
+
+To run the script, just make a copy locally and save it, chmod the file with a value of 755 (or just chown it, whatever), and call it with "bash ./filename.sh" If you do "bash ./filename.sh -v" it will do verbose output to the console and display the fan speed and gpu temp at each interval (8 seconds by default). If you're doing this from a remote terminal, you can use ctrl+z and then bg to set it as a background job, or just call it with the & symbol at the end when starting it so it doesn't take over the terminal session.
+
+Be aware, you need to be using the proprietary Nvidia driver for this to work, and you'll need to enable cool bit for fan control via "sudo nvidia-xconfig --cool-bits=4" (or --cool-bits=12 if you'd also like to enable overclocking). Then reboot for the cool-bit value change to take effect. A value of 4 enables manual fan control, 8 for OC in nvidia-settings. 12 enables both. You can also enable voltage control in addition to the rest with a value of 28.
+
+This only works on more recent revisions of the Nvidia driver (I believe versions above 340). I'm on Ubuntu 18.04, and this should work on at minimum 16.04 and up, plus other distros with similar versions and kernels. If you have a really old distro or much older drivers for some reason, you can use the script I originally based mine on, which can be found at the link below:
+
+https://gist.github.com/loathingKernel/995777d2aab6dc82316ea2da62142975
